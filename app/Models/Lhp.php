@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Services\LhpStatistikService;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use App\Traits\HasActivityLog;
 
 class Lhp extends Model
@@ -45,9 +46,10 @@ class Lhp extends Model
     return $this->belongsTo(User::class, 'status_batal_user_id');
 }
 
-public function attachments(): HasMany
+
+public function attachments(): MorphMany
 {
-    return $this->hasMany(Attachment::class, 'lhp_id');
+    return $this->morphMany(Attachment::class, 'attachable');
 }
 
 // Lhp.php
