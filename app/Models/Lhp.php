@@ -23,8 +23,6 @@ class Lhp extends Model
     protected $table = 'lhps';
     protected $primaryKey = 'id';
 
-    
-  
 
     protected $fillable = [
         'audit_assignment_id', 'nomor_lhp', 'tanggal_lhp', 'semester',
@@ -45,6 +43,11 @@ class Lhp extends Model
     public function batalUser(): BelongsTo
 {
     return $this->belongsTo(User::class, 'status_batal_user_id');
+}
+
+public function attachments(): HasMany
+{
+    return $this->hasMany(Attachment::class, 'lhp_id');
 }
 
 // Lhp.php
