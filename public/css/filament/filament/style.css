@@ -1,0 +1,92 @@
+/* Custom Variables */
+:root {
+    --primary: #003366;
+    --secondary: #c5a059;
+    --bg-light: #f8fafc;
+    --bg-dark: #020617;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #128c7e;
+    color: white;
+}
+
+/* Optional Pulse Animation */
+.whatsapp-pulse {
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Base Patterns */
+.grid-pattern {
+    background-image: radial-gradient(circle, #e5e5e5 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.dark .grid-pattern {
+    background-image: radial-gradient(circle, #262626 1px, transparent 1px);
+}
+
+.hero-gradient {
+    background: radial-gradient(circle at 50% 0%, rgba(0, 51, 102, 0.05) 0%, rgba(248, 250, 252, 1) 100%);
+}
+
+.dark .hero-gradient {
+    background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.05) 0%, rgba(2, 6, 23, 1) 100%);
+}
+
+/* Animations */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Berhenti tepat di setengah total lebar */
+}
+.animate-marquee {
+    display: flex;
+    width: max-content; /* Sangat penting: agar lebar mengikuti konten */
+    animation: marquee 30s linear infinite;
+    gap: 4rem; /* Sesuaikan gap di sini atau di HTML */
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+
+
+/* Scroll Progress Bar */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: var(--primary);
+    z-index: 60;
+    transition: width 0.15s ease-out;
+}
